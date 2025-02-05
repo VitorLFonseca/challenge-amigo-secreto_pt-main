@@ -1,6 +1,6 @@
 let amigos = [];
 
-function adicionarAmigo(){
+function adicionarAmigo() {
     let nomes = document.querySelector('input').value;
     if (nomes == "") {
         alert('Por favor, insira um nome');
@@ -27,4 +27,12 @@ function sortearAmigo() {
     
     let sorteado = amigos[Math.floor(Math.random() * amigos.length)];
     document.querySelector('#resultado').innerHTML = 'O amigo sorteado é: ' + sorteado;
+
+    amigos = amigos.filter(function(amigo) {
+        return amigo !== sorteado;
+    });
+
+    if (amigos.length === 0) {
+        alert('Todos os nomes foram sorteados!');
+    }
 }
